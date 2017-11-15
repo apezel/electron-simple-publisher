@@ -20,10 +20,10 @@ class TestTransport extends AbstractTransport {
    * @param {object} build
    * @return {Promise<string>} File url
    */
-  uploadFile(filePath, build) {
+  uploadFile(filePath, build, options) {
     return new Promise((resolve) => {
       this.uploadFiles.push(filePath);
-      const url = 'http://example.com/' + this.getBuildId(build) + '/' +
+      const url = 'http://example.com/' + this.getBuildTagName(build) + '/' +
         path.basename(filePath);
       resolve(url);
     });
